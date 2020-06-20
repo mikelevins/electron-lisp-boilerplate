@@ -21,7 +21,7 @@ function createWindow () {
 var lispProcess = null;
 
 function runapp () {
-    lispProcess = spawn(path.resolve(__dirname, "lispapp"), [], { cwd: __dirname});
+    lispProcess = spawn(path.resolve(__dirname, "lispapp"), [], { cwd: __dirname, shell: true});
     createWindow();
 }
 

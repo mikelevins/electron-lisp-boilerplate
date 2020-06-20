@@ -1,3 +1,5 @@
 node_modules
 lispapp
 electron-lisp-boilerplate-darwin-x64
+electron-lisp-boilerplate-win32-x64
+
