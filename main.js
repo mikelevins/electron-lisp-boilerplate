@@ -1,5 +1,6 @@
 const { app, BrowserWindow, dialog } = require('electron');
-const { spawn } = require('child_process');
+//const { spawn } = require('child_process');
+const execFile = require('child_process').execFile;
 const path = require('path');
 
 const MAIN_URL = 'http://localhost:8000';
@@ -21,7 +22,17 @@ function createWindow () {
 var lispProcess = null;
 
 function runapp () {
-    lispProcess = spawn(path.resolve(__dirname, "lispapp"), [], { cwd: __dirname, shell: true});
+    lispExePath = path.resolve(__dirname, "lispapp.exe");
+    console.log(lispExePath);
+    //    lispProcess = spawn(lispExePath, [], { cwd: __dirname, shell: true});
+    lispProcess = execFile(lispExePath, function(err, data) {
+        if(err) {
+            console.error(err);
+            return;
+        }
+        console.log("\n");
+        console.log(data.toString());
+    });
     createWindow();
 }
 
