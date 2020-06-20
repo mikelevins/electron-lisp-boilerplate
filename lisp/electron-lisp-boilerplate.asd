@@ -6,6 +6,9 @@
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
+(ql:quickload :hunchentoot)
+(ql:quickload :cl-who)
+
 (asdf:defsystem #:electron-lisp-boilerplate
   :description "Describe electron-lisp-boilerplate here"
   :author "Your Name <your.name@example.com>"
