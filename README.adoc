@@ -26,7 +26,7 @@ There isn't yet a quick and easy way to do this; you'll have to search for all o
 
 The `buildapp.sh` command 
 
-. uses sbcl to build the `lisapp` program from sources in the `lisp` subdirectory
+. uses sbcl to build the `lispapp` program from sources in the `lisp` subdirectory
 . installs the needed Node modules in your project's directory
 . uses electron-packager to build the Electron app
 
