@@ -1,4 +1,4 @@
 ;;;; package.lisp
 
-(defpackage #:electron-lisp-boilerplate
+(defpackage #:appserver
   (:use #:cl #:cl-who))

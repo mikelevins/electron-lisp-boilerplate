@@ -22,16 +22,14 @@ function createWindow () {
 var lispProcess = null;
 
 function runapp () {
-    lispExePath = path.resolve(__dirname, "lispapp.exe");
+    lispExePath = path.resolve(__dirname, "appserver");
     console.log(lispExePath);
-    //    lispProcess = spawn(lispExePath, [], { cwd: __dirname, shell: true});
-    lispProcess = execFile(lispExePath, function(err, data) {
+    lispProcess = execFile(lispExePath, [], function(err, stdout, stderr) {
         if(err) {
             console.error(err);
             return;
         }
-        console.log("\n");
-        console.log(data.toString());
+        console.log("\nFinished.");
     });
     createWindow();
 }

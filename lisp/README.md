@@ -1,4 +1,4 @@
-# electron-lisp-boilerplate
+# appserver
 
 The process that implements application logic for
-eletron-lisp-boilerplate.
+electron-lisp-boilerplate.
