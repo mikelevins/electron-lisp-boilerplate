@@ -19,7 +19,7 @@
   :author "mikel evins <mikel@evins.net>"
   :version "0.0.2"
   :serial t
-  :depends-on (:hunchentoot :cl-who)
+  :depends-on (:hunchentoot :hunchensocket :cl-who)
   :components ((:module "src"
                 :serial t
                 :components ((:file "package")
@@ -28,6 +28,10 @@
                              ))))
 
 ;;; (asdf:load-system :appserver)
+;;; testing the server
+;;; (appserver::start-server 8000)
+;;; (appserver::stop-server)
+
 
 (defun http-document-root ()
   (asdf:system-relative-pathname :appserver "../public/"))
