@@ -52,7 +52,9 @@
   (broadcast room "~a has left ~a" (name user) (name room)))
 
 (defmethod hunchensocket:text-message-received ((room chat-room) user message)
-  (broadcast room "~a says ~a" (name user) message))
+  (if (equal "/bongo" (name room))
+      (hunchensocket:send-text-message room (format nil "<div id=\"wsresponse\">message received: ~a</div>" message))
+      (broadcast room "~a says ~a" (name user) message)))
 
 (defvar *websocket-server* nil)
 
@@ -81,5 +83,16 @@
 ;;; 4. Type a message into the Request field and click the Send button
 ;;; Success is when the Message Lof field echoes the text from the Request field
 ;;; When the websocket server is killed, the websocket connection drops and the client extension's Send button becomes inactive
+;;;
 ;;; (start-websocket 8001)
 ;;; (stop-websocket)
+
+;;; test the webserver with a websocket
+;;; (progn (start-server 8000)(start-websocket 8001))
+;;; (progn (stop-server)(stop-websocket))
+
+;;; TODO:
+;;; the code in the websocket server section here plus the code
+;;; in ui.lisp marked with *** Websocket test manage to open a websocket
+;;; and create a web page that connects to it, but there is an error
+;;; processing the connection when sending from the form; need to debug and fix

@@ -23,6 +23,7 @@
          (:h3 "Document Root")
          (:p (fmt "~A" docroot)))
         (:div
+         (:h4 "Send an HTTP request")
          (:form
           (:input :type "text" :name "msg")
           (:br)
@@ -30,6 +31,13 @@
                    :hx-post "/btnclick"
                    :hx-target "#response"
                    "Send message")))
-        (:div :id "response")))
+        (:div :id "response")
+        ;; *** Websocket test
+        (:div
+         (:h4 "Connect to a websocket")
+         (:div :id "wsresponse")
+         (:div :hx-ws "connect:ws://localhost:8001/bongo"
+               (:form :hx-ws "send"
+                      (:input :name "message"))))))
       (values))))
 
