@@ -53,7 +53,7 @@
 
 (defmethod hunchensocket:text-message-received ((room chat-room) user message)
   (if (equal "/bongo" (name room))
-      (hunchensocket:send-text-message room (format nil "<div id=\"wsresponse\">message received: ~a</div>" message))
+      (broadcast room (format nil "<div id=\"wsresponse\">message received: ~a</div>" message))
       (broadcast room "~a says ~a" (name user) message)))
 
 (defvar *websocket-server* nil)
